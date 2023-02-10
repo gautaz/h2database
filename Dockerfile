@@ -1,4 +1,4 @@
-FROM amazoncorretto:17.0.6-alpine3.17 as base
+FROM azul/zulu-openjdk-alpine:17.0.4.1-17.36.17 as base
 
 FROM base as build
 COPY . /src
