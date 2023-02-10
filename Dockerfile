@@ -1,4 +1,4 @@
-FROM amazoncorretto:8u362-alpine3.17 as base
+FROM amazoncorretto:17.0.6-alpine3.17 as base
 
 FROM base as build
 COPY . /src
