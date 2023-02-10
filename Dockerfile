@@ -9,5 +9,6 @@ FROM base
 COPY --from=build /src/h2/bin/*.jar /opt/h2database/h2.jar
 RUN adduser -D h2
 USER h2
-ENTRYPOINT ["/usr/bin/java", "-cp", "/opt/h2database/h2.jar", "org.h2.tools.Server"]
+VOLUME "/home/h2/databases"
+ENTRYPOINT ["/usr/bin/java", "-cp", "/opt/h2database/h2.jar", "org.h2.tools.Server", "-baseDir", "/home/h2/databases"]
 CMD ["-web", "-webAllowOthers", "-tcp", "-tcpAllowOthers"]
